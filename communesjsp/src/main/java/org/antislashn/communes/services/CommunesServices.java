@@ -24,5 +24,12 @@ public class CommunesServices {
 	}
 	
 	
+	public List<Commune> getCommunesByDepartement(String departement)
+	{
+		return dao.getCommunesByDepartement(departement);
+	}
+	
+	
+	
 
 }

@@ -7,6 +7,7 @@ import javax.persistence.Persistence;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
 import org.antislashn.communes.services.CommunesServices;
 
@@ -14,6 +15,8 @@ import org.antislashn.communes.services.CommunesServices;
  * Application Lifecycle Listener implementation class ApplicationListener
  *
  */
+
+@WebListener
 public class ApplicationListener implements ServletContextListener {
 	
 	private static final Logger LOG = Logger.getLogger("communes");
@@ -31,6 +34,9 @@ public class ApplicationListener implements ServletContextListener {
     	LOG.info(">>> EMF " + emf);
     	ServletContext application = sce.getServletContext();
     	application.setAttribute(Constantes.EMF, emf);
+    	
+    	
+    	//ON met le service dans le context applicatif
     	
     	CommunesServices service = new CommunesServices(emf);
     	LOG.info(">>> Service " + service);
